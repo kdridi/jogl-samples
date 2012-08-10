@@ -45,25 +45,44 @@ public class App {
 		private static final Logger logger = Logger.getLogger(Renderer.class);
 		private final GLU glu = new GLU();
 
+		public void init(GLAutoDrawable gLDrawable) {
+			logger.debug(String.format("init <- (GLAutoDrawable gLDrawable)"));
+			final GL2 gl = gLDrawable.getGL().getGL2();
+
+			gl.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+			gl.glShadeModel(GL2.GL_FLAT);
+
+			logger.debug(String.format("init -> ()"));
+		}
+
 		public void display(GLAutoDrawable gLDrawable) {
 			logger.debug(String.format("display <- (GLAutoDrawable gLDrawable)"));
 			final GL2 gl = gLDrawable.getGL().getGL2();
+
 			gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
 			gl.glMatrixMode(GL2.GL_MODELVIEW);
 			gl.glLoadIdentity();
+
 			gl.glTranslatef(-1.5f, 0.0f, -6.0f);
 			gl.glBegin(GL2.GL_TRIANGLES);
-			gl.glVertex3f(0.0f, 1.0f, 0.0f);
-			gl.glVertex3f(-1.0f, -1.0f, 0.0f);
-			gl.glVertex3f(1.0f, -1.0f, 0.0f);
+			{
+				gl.glVertex3f(0.0f, 1.0f, 0.0f);
+				gl.glVertex3f(-1.0f, -1.0f, 0.0f);
+				gl.glVertex3f(1.0f, -1.0f, 0.0f);
+			}
 			gl.glEnd();
-			gl.glTranslatef(3.0f, 0.0f, 0.0f);
+
+			gl.glLoadIdentity();
+			gl.glTranslatef(1.5f, 0.0f, -6.0f);
 			gl.glBegin(GL2.GL_QUADS);
-			gl.glVertex3f(-1.0f, 1.0f, 0.0f);
-			gl.glVertex3f(1.0f, 1.0f, 0.0f);
-			gl.glVertex3f(1.0f, -1.0f, 0.0f);
-			gl.glVertex3f(-1.0f, -1.0f, 0.0f);
+			{
+				gl.glVertex3f(-1.0f, 1.0f, 0.0f);
+				gl.glVertex3f(1.0f, 1.0f, 0.0f);
+				gl.glVertex3f(1.0f, -1.0f, 0.0f);
+				gl.glVertex3f(-1.0f, -1.0f, 0.0f);
+			}
 			gl.glEnd();
+
 			gl.glFlush();
 			logger.debug(String.format("display -> ()"));
 		}
@@ -73,16 +92,6 @@ public class App {
 			logger.debug(String.format("displayChanged -> ()"));
 		}
 
-		public void init(GLAutoDrawable gLDrawable) {
-			logger.debug(String.format("init <- (GLAutoDrawable gLDrawable)"));
-			logger.debug(String.format("init -> ()"));
-
-			final GL2 gl = gLDrawable.getGL().getGL2();
-
-			gl.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-			gl.glShadeModel(GL2.GL_FLAT);
-		}
-
 		public void reshape(GLAutoDrawable gLDrawable, int x, int y, int width, int height) {
 			if (height <= 0) {
 				logger.info("avoid a divide by zero error!");
@@ -90,14 +99,15 @@ public class App {
 			}
 
 			logger.debug(String.format("reshape <- (GLAutoDrawable gLDrawable, int x = %d, int y = %d, int width = %d, int height = %d)", x, y, width, height));
-			logger.debug(String.format("reshape -> ()"));
 			final GL2 gl = gLDrawable.getGL().getGL2();
 
-			final float h = (float) width / (float) height;
 			gl.glViewport(0, 0, width, height);
+
+			final float ratio = (float) width / (float) height;
 			gl.glMatrixMode(GL2.GL_PROJECTION);
 			gl.glLoadIdentity();
-			glu.gluPerspective(45.0f, h, 1.0, 20.0);
+			glu.gluPerspective(45.0f, ratio, 1.0, 20.0);
+			logger.debug(String.format("reshape -> ()"));
 		}
 
 		public void dispose(GLAutoDrawable arg0) {

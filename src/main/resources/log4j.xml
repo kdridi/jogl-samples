@@ -5,7 +5,7 @@
 		<layout class="org.apache.log4j.SimpleLayout" />
 	</appender>
 	<logger name="com.arykow">
-		<level value="debug" />
+		<level value="info" />
 	</logger>
 	<root>
 		<level value="error" />
