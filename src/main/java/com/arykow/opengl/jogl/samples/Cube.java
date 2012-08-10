@@ -49,36 +49,42 @@ public class Cube {
 			gl.glRotated(0.0f - angleValue, angleX, angleY, angleZ);
 			gl.glBegin(GL2.GL_QUADS);
 			{
-				gl.glColor3f(0.0f, length, 0.0f);
-				gl.glVertex3f(length, length, -length);
-				gl.glVertex3f(-length, length, -length);
-				gl.glVertex3f(-length, length, length);
-				gl.glVertex3f(length, length, length);
-				gl.glColor3f(length, 0.5f, 0.0f);
-				gl.glVertex3f(length, -length, length);
-				gl.glVertex3f(-length, -length, length);
-				gl.glVertex3f(-length, -length, -length);
-				gl.glVertex3f(length, -length, -length);
-				gl.glColor3f(length, 0.0f, 0.0f);
-				gl.glVertex3f(length, length, length);
-				gl.glVertex3f(-length, length, length);
-				gl.glVertex3f(-length, -length, length);
-				gl.glVertex3f(length, -length, length);
-				gl.glColor3f(length, length, 0.0f);
-				gl.glVertex3f(length, -length, -length);
-				gl.glVertex3f(-length, -length, -length);
-				gl.glVertex3f(-length, length, -length);
-				gl.glVertex3f(length, length, -length);
-				gl.glColor3f(0.0f, 0.0f, length);
-				gl.glVertex3f(-length, length, length);
-				gl.glVertex3f(-length, length, -length);
-				gl.glVertex3f(-length, -length, -length);
-				gl.glVertex3f(-length, -length, length);
-				gl.glColor3f(length, 0.0f, length);
-				gl.glVertex3f(length, length, -length);
-				gl.glVertex3f(length, length, length);
-				gl.glVertex3f(length, -length, length);
-				gl.glVertex3f(length, -length, -length);
+				// HAUT
+				gl.glColor3f(0.0f, 1.0f, 0.0f);
+				gl.glVertex3f(0 + length, 0 + length, 0 - length);
+				gl.glVertex3f(0 - length, 0 + length, 0 - length);
+				gl.glVertex3f(0 - length, 0 + length, 0 + length);
+				gl.glVertex3f(0 + length, 0 + length, 0 + length);
+				// BAS
+				gl.glColor3f(1.0f, 0.5f, 0.0f);
+				gl.glVertex3f(0 + length, 0 - length, 0 + length);
+				gl.glVertex3f(0 - length, 0 - length, 0 + length);
+				gl.glVertex3f(0 - length, 0 - length, 0 - length);
+				gl.glVertex3f(0 + length, 0 - length, 0 - length);
+				// AVANT
+				gl.glColor3f(1.0f, 0.0f, 0.0f);
+				gl.glVertex3f(0 + length, 0 + length, 0 + length);
+				gl.glVertex3f(0 - length, 0 + length, 0 + length);
+				gl.glVertex3f(0 - length, 0 - length, 0 + length);
+				gl.glVertex3f(0 + length, 0 - length, 0 + length);
+				// ARRIERE
+				gl.glColor3f(1.0f, 1.0f, 0.0f);
+				gl.glVertex3f(0 + length, 0 - length, 0 - length);
+				gl.glVertex3f(0 - length, 0 - length, 0 - length);
+				gl.glVertex3f(0 - length, 0 + length, 0 - length);
+				gl.glVertex3f(0 + length, 0 + length, 0 - length);
+				// GAUCHE
+				gl.glColor3f(0.0f, 0.0f, 1.0f);
+				gl.glVertex3f(0 - length, 0 + length, 0 + length);
+				gl.glVertex3f(0 - length, 0 + length, 0 - length);
+				gl.glVertex3f(0 - length, 0 - length, 0 - length);
+				gl.glVertex3f(0 - length, 0 - length, 0 + length);
+				// DROIRE
+				gl.glColor3f(1.0f, 0.0f, 1.0f);
+				gl.glVertex3f(0 + length, 0 + length, 0 - length);
+				gl.glVertex3f(0 + length, 0 + length, 0 + length);
+				gl.glVertex3f(0 + length, 0 - length, 0 + length);
+				gl.glVertex3f(0 + length, 0 - length, 0 - length);
 			}
 			gl.glEnd();
 			gl.glPopMatrix();
@@ -103,30 +109,30 @@ public class Cube {
 			gl.glRotated(0.0f - angleValue, angleX, angleY, angleZ);
 			gl.glBegin(GL2.GL_TRIANGLES);
 			{
-				gl.glColor3f(length, 0.0f, 0.0f);
-				gl.glVertex3f(0.0f, length, 0.0f);
-				gl.glColor3f(0.0f, length, 0.0f);
-				gl.glVertex3f(-length, -length, length);
-				gl.glColor3f(0.0f, 0.0f, length);
-				gl.glVertex3f(length, -length, length);
-				gl.glColor3f(length, 0.0f, 0.0f);
-				gl.glVertex3f(0.0f, length, 0.0f);
-				gl.glColor3f(0.0f, 0.0f, length);
-				gl.glVertex3f(length, -length, length);
-				gl.glColor3f(0.0f, length, 0.0f);
-				gl.glVertex3f(length, -length, -length);
-				gl.glColor3f(length, 0.0f, 0.0f);
-				gl.glVertex3f(0.0f, length, 0.0f);
-				gl.glColor3f(0.0f, length, 0.0f);
-				gl.glVertex3f(length, -length, -length);
-				gl.glColor3f(0.0f, 0.0f, length);
-				gl.glVertex3f(-length, -length, -length);
-				gl.glColor3f(length, 0.0f, 0.0f);
-				gl.glVertex3f(0.0f, length, 0.0f);
-				gl.glColor3f(0.0f, 0.0f, length);
-				gl.glVertex3f(-length, -length, -length);
-				gl.glColor3f(0.0f, length, 0.0f);
-				gl.glVertex3f(-length, -length, length);
+				gl.glColor3f(1.0f, 0.0f, 0.0f);
+				gl.glVertex3f(0.0f, 0 + length, 0.0f);
+				gl.glColor3f(0.0f, 1.0f, 0.0f);
+				gl.glVertex3f(0 - length, 0 - length, 0 + length);
+				gl.glColor3f(0.0f, 0.0f, 1.0f);
+				gl.glVertex3f(0 + length, 0 - length, 0 + length);
+				gl.glColor3f(1.0f, 0.0f, 0.0f);
+				gl.glVertex3f(0.0f, 0 + length, 0.0f);
+				gl.glColor3f(0.0f, 0.0f, 1.0f);
+				gl.glVertex3f(0 + length, 0 - length, 0 + length);
+				gl.glColor3f(0.0f, 1.0f, 0.0f);
+				gl.glVertex3f(0 + length, 0 - length, 0 - length);
+				gl.glColor3f(1.0f, 0.0f, 0.0f);
+				gl.glVertex3f(0.0f, 0 + length, 0.0f);
+				gl.glColor3f(0.0f, 1.0f, 0.0f);
+				gl.glVertex3f(0 + length, 0 - length, 0 - length);
+				gl.glColor3f(0.0f, 0.0f, 1.0f);
+				gl.glVertex3f(0 - length, 0 - length, 0 - length);
+				gl.glColor3f(1.0f, 0.0f, 0.0f);
+				gl.glVertex3f(0.0f, 0 + length, 0.0f);
+				gl.glColor3f(0.0f, 0.0f, 1.0f);
+				gl.glVertex3f(0 - length, 0 - length, 0 - length);
+				gl.glColor3f(0.0f, 1.0f, 0.0f);
+				gl.glVertex3f(0 - length, 0 - length, 0 + length);
 			}
 			gl.glEnd();
 			gl.glPopMatrix();
