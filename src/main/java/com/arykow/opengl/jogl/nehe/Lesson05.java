@@ -37,6 +37,7 @@ public class Lesson05 {
 		window.setVisible(true);
 		window.setTitle("Nehe Lesson 05");
 		window.addWindowListener(new WindowAdapter() {
+			@Override
 			public void windowDestroyed(WindowEvent arg0) {
 				logger.debug(String.format("shutdown the program on windows close event"));
 				finish();
@@ -206,5 +207,4 @@ public class Lesson05 {
 		public void keyTyped(KeyEvent e) {
 		}
 	}
-
 }
